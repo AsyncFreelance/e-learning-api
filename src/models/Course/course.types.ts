@@ -11,6 +11,7 @@ export interface ICourse {
   verified: boolean
   teacherID: string
   universityID: string
+  image: string
   categoryID: string
 }
 
@@ -29,6 +30,7 @@ export interface ICourseInput {
   numberOfChapters: number
   teacherID: string
   universityID: string
+  image: string
   categoryID: string
 }
 
@@ -40,6 +42,7 @@ export interface ICourseEdit {
   numberOfChapters: number
   teacherID: string
   universityID: string
+  image: string
   categoryID: string
 }
 
@@ -52,6 +55,7 @@ export interface ICourseDoc {
   verified: boolean
   teacherID: string
   universityID: string
+  image: string
   categoryID: string
   error: ErrorType
   createdAt?: Date

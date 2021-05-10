@@ -18,6 +18,7 @@ extend type Mutation {
 type CourseDoc {
   _id: String
   title: String
+  image: String
   briefIntroduction: String
   language: String
   numberOfChapters: Int
@@ -32,6 +33,7 @@ type CourseDoc {
 
 input CourseInput {
   title: String!
+  image: String
   briefIntroduction: String!
   language: String!
   numberOfChapters: Int!
@@ -43,6 +45,7 @@ input CourseInput {
 input CourseEdit {
   _id: String!
   title: String
+  image: String
   briefIntroduction: String
   language: String
   numberOfChapters: Int

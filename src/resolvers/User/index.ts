@@ -4,7 +4,7 @@ import DBWrapper from "../../wrappers/APIGenerator"
 import CourseResolver from "../Course"
 
 const { getAPICalls } = new DBWrapper(UserModel)
-const { Create, Edit, Fetch, FetchOne, Remove } = getAPICalls()
+const { Create, Edit, Fetch, FetchOne, Remove, RemoveAll, Find } = getAPICalls()
 
 const UserResolver = {
   Query: {
@@ -25,6 +25,9 @@ const UserResolver = {
         return foundIndex >= 0
       }) as any[]
     },
+    async fetchUserByStudentID(_: any, prop: any): Promise<IUserDoc> {
+      return await FetchOne(prop.studentID, "externalID") as unknown as IUserDoc
+    }
   },
 
   Mutation: {
@@ -54,11 +57,11 @@ const UserResolver = {
       }
     },
     async login(_: any, prop: GQLLoginInput) {
-      const foundUser = await FetchOne(prop.email, "email") as IUserDoc
+      const foundUser = await FetchOne(prop.input.email, "email") as IUserDoc
       if (foundUser.error) {
         return foundUser
       } else {
-        if (foundUser.password === prop.password) {
+        if (foundUser.password === prop.input.password) {
           return foundUser
         } else {
           return {
@@ -69,6 +72,9 @@ const UserResolver = {
           }
         }
       }
+    },
+    async removeUsers(_: any, prop: any) {
+      return await RemoveAll()
     }
   }
 }

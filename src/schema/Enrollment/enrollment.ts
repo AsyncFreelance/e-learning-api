@@ -11,6 +11,7 @@ extend type Mutation {
   postEnrollment(EnrollmentInput: EnrollmentInput!): EnrollmentDoc
   editEnrollment(EnrollmentEdit: EnrollmentEdit!): EnrollmentDoc
   removeEnrollment(_id: String!): EnrollmentDoc
+  removeAllEnrollment: [EnrollmentDoc!]
 }
 
 type EnrollmentDoc {

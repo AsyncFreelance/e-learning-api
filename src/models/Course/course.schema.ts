@@ -22,6 +22,9 @@ const CourseSchema = new Schema({
   categoryID: {
     type: String, unique: false
   },
+  image: {
+    type: String, unique: false, default: ""
+  },
   verified: {
     type: Boolean, unique: false, default: false
   },

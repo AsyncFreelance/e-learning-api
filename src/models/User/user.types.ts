@@ -6,8 +6,11 @@ export { Query }
 export interface IUser {
   firstName: string
   lastName: string
+  userType: string
+  image: string
   email: string
   password: string
+  externalID: string
   enrolledCourses: string[]
   numberOfCoursesEnrolled: number
   numberOfCoursesCompleted: number
@@ -24,12 +27,18 @@ export interface GQLEditUser {
 export interface IUserInput {
   firstName: string
   lastName: string
+  userType: string
+  image: string
   email: string
   numberOfCoursesEnrolled?: number
   numberOfCoursesCompleted?: number
 }
 
 export interface GQLLoginInput {
+  input: LoginInput
+}
+
+export interface LoginInput {
   email: string
   password: string
 }
@@ -38,6 +47,8 @@ export interface IUserEdit {
   _id: string
   firstName: string
   lastName: string
+  userType: string
+  image: string
   email: string
   numberOfCoursesEnrolled: number
   numberOfCoursesCompleted: number
@@ -47,8 +58,11 @@ export interface IUserDoc {
   _id: string
   firstName: string
   lastName: string
+  userType: string
+  image: string
   email: string
   password: string
+  externalID: string
   enrolledCourses: string[]
   numberOfCoursesEnrolled: number
   numberOfCoursesCompleted: number

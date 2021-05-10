@@ -3,7 +3,7 @@ import { GQLEditEnrollmentRequest, GQLPostEnrollmentRequest, IEnrollmentRequestD
 import DBWrapper from "../../wrappers/APIGenerator"
 
 const { getAPICalls } = new DBWrapper(EnrollmentRequestModel)
-const { Create, Edit, Fetch, FetchOne, Remove } = getAPICalls()
+const { Create, Edit, Fetch, FetchOne, Remove, RemoveAll } = getAPICalls()
 
 const EnrollmentRequestResolver = {
   Query: {
@@ -25,6 +25,9 @@ const EnrollmentRequestResolver = {
     async removeEnrollmentRequest(_: any, prop: any) {
       return await Remove(prop._id) as unknown as IEnrollmentRequestDoc
     },
+    async removeEnrollmentRequests(_: any, prop: any) {
+      return await RemoveAll()
+    }
   }
 }
 
